@@ -11,12 +11,12 @@ int number = Convert.ToInt32(Console.ReadLine());
 if (number < 0) number = number * -1;
 if(number < 10000 || number > 99999)
 {
-    Console.WriteLine("Число не является пятизначным!");
+     Console.WriteLine("Число не является пятизначным!");
 }
 else
 {
-    bool palindrome = Palindrome(number);
-    Console.Write(palindrome ? "Да" : "Нет");
+     bool palindrome = Palindrome(number);
+     Console.Write(palindrome ? "Да" : "Нет");
 }
 
 bool Palindrome (int num)
