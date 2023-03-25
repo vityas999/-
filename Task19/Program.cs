@@ -32,4 +32,3 @@ while(num > 0)
 }
 return initNum == revNum;
 }
-

@@ -28,5 +28,3 @@ double result = Distance(num1X, num1Y, num1Z, num2X, num2Y, num2Z);
 double resultRound = Math.Round(result, 2, MidpointRounding.ToZero);
 
 Console.WriteLine($"Расстояние между точками равно {resultRound}");
-
-
