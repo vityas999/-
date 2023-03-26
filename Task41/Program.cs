@@ -4,7 +4,7 @@
 // -1, -7, 567, 89, 223-> 3
 int lenght = Input("Введите количество элементов: ");
 int[] array;
-array = InputArr(lenght);
+array = InputArray(lenght);
 PrintArray(array);
 Console.WriteLine($"Количество чиссел больше 0: {PositiveNumbersCount(array)}");
 
@@ -17,7 +17,7 @@ int Input(string massage)
     return result;
 }
 
-int[] InputArr(int lenght)
+int[] InputArray(int lenght)
 {
     int[] array = new int[lenght];
     for (int i = 0; i < array.Length; i++)
