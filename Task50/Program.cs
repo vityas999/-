@@ -39,12 +39,12 @@ bool Verification(int[,] matrix, int rows, int colums)
     return rows <= matrix.GetLength(0) && colums <= matrix.GetLength(1) && rows > 0 && colums > 0;
 }
 
-int[,] array2d = CreateMatrixRndInt(3, 4, 1, 10);
+int[,] array2d = CreateMatrixRndInt(5, 5, 1, 10);
 Console.Write("Введите номер строки: ");
 int row = Convert.ToInt32(Console.ReadLine());
 Console.Write("Введите номер столбца: ");
 int colum = Convert.ToInt32(Console.ReadLine());
 PrintMatrix(array2d);
 Console.WriteLine(Verification(array2d, row, colum) ?
-                                    $"В позициях [{row}, {colum}] находится число - {array2d[row - 1, colum - 1]}"
+                                    $"В позициях [{row}, {colum}] находится число: {array2d[row - 1, colum - 1]}"
  : "В массиве такого элемента нет");
