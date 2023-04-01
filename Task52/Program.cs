@@ -65,7 +65,7 @@ void PrintArray (double[] arr)
     Console.Write(".");
 }
 
-int[,] array2d = CreateMatrixRndInt(3, 4, 1, 10);
+int[,] array2d = CreateMatrixRndInt(3, 3, 1, 100);
 PrintMatrix(array2d);
 
 double[] arithmeticMean = ArithmeticMean(array2d);
