@@ -54,7 +54,7 @@ double[] ArithmeticMean(int [,] matrix)
     return array;
 }
 
-void PrintArray (double[] arr)
+void PrintArithmeticMeanArray (double[] arr)
 {
     Console.Write("Среднее арифметическое каждого столбца: ");
     for (int i = 0; i < arr.Length; i++)
@@ -71,4 +71,4 @@ PrintMatrix(array2d);
 double[] arithmeticMean = ArithmeticMean(array2d);
 
 Console.WriteLine();
-PrintArray(arithmeticMean);
+PrintArithmeticMeanArray(arithmeticMean);
