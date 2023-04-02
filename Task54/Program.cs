@@ -9,57 +9,57 @@
 // 9 5 3 2
 // 8 4 4 2
 
-Console.WriteLine("Введите количество строк: ");
-int linesVol = Convert.ToInt32(Console.ReadLine());
-Console.WriteLine("Введите количество столбцов: ");
-int columnsVol = Convert.ToInt32(Console.ReadLine());
-int[,] numbers = new int[linesVol, columnsVol];
-FillArrayRandomNumbers(numbers);
-Console.WriteLine();
-Console.WriteLine("Массив до изменения: ");
-PrintArray(numbers);
-
-for (int i = 0; i < numbers.GetLength(0); i++)
+int[,] CreateMatrixRndInt(int rows, int columns, int min, int max)
 {
-    for (int j = 0; j < numbers.GetLength(1) - 1; j++)
+    int[,] matrix = new int[rows, columns];
+    Random rnd = new Random();
+
+    for (int i = 0; i < matrix.GetLength(0); i++)   //rows
     {
-        for (int z = 0; z < numbers.GetLength(1) - 1; z++)
+        for (int j = 0; j < matrix.GetLength(1); j++)  //columns
         {
-            if (numbers[i, z] < numbers[i, z + 1]) //для изменения сортировки поменять знак < на противоположный
+            matrix[i, j] = rnd.Next(min, max + 1);
+        }
+    }
+    return matrix;
+}
+
+void PrintMatrix (int[,] matrix)
+{
+    for (int i = 0; i < matrix.GetLength(0); i++)
+    {
+        Console.Write("|");
+    for (int j = 0; j < matrix.GetLength(1); j++)
+    {
+        Console.Write($"{matrix[i, j], 3} ");
+    }
+    Console.WriteLine("|");
+    }
+}
+
+void MatrixArrangeRow(int[,] matrix)
+{
+    int temp = 0;
+    for (int i = 0; i < matrix.GetLength(0); i++)
+    {
+        for (int j = 0; j < matrix.GetLength(1); j++)
+        {
+            for (int z = 0; z < matrix.GetLength(1); z++)
             {
-                int temp = 0;
-                temp = numbers[i, z];
-                numbers[i, z] = numbers[i, z + 1];
-                numbers[i, z + 1] = temp;
+                if(matrix[i,j] <= matrix[i,z]) continue;
+
+                temp = matrix[i,j];
+                matrix[i,j] = matrix[i,z];
+                matrix[i,z] = temp;
             }
+            
         }
     }
 }
+
+int[,] array2d = CreateMatrixRndInt(3, 3, 0, 10);
+PrintMatrix(array2d);
 Console.WriteLine();
-Console.WriteLine("Массив с упорядоченными значениями: ");
-PrintArray(numbers);
 
-void FillArrayRandomNumbers(int[,] array)
-{
-    for (int i = 0; i < array.GetLength(0); i++)
-    {
-        for (int j = 0; j < array.GetLength(1); j++)
-        {
-            array[i, j] = new Random().Next(0, 10);
-        }
-    }
-}
-
-void PrintArray(int[,] array)
-{
-    for (int i = 0; i < array.GetLength(0); i++)
-    {
-        Console.Write("[ ");
-        for (int j = 0; j < array.GetLength(1); j++)
-        {
-            Console.Write(array[i, j] + " ");
-        }
-        Console.Write("]");
-        Console.WriteLine("");
-    }
-}
+MatrixArrangeRow(array2d);
+PrintMatrix(array2d);
